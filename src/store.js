@@ -8,16 +8,20 @@ export default new Vuex.Store({
     dataList: []
   },
   mutations: {
-
+    addData: (state, arr) => {
+      state.dataList = [...state.dataList, ...arr]
+    }
   },
   getters: {
-    getAverage: state => 0,
+    getAverage: state => (state.dataList.reduce((amount, { data: n }) => amount + n, 0) / state.dataList.length).toFixed(2),
     getData: state => state.dataList
   },
   actions: {
-    getDataCall (context) {
+    async getDataCall (context) {
       // TODO
-      mockGenerator()
+      let startIndex = context.state.dataList.length
+      let length = startIndex + Math.random() * 20
+      context.commit('addData', await mockGenerator(startIndex, length))
     }
   }
 })

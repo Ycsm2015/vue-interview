@@ -35,5 +35,8 @@
       "vue-cli-service lint",
       "git add"
     ]
+  },
+  "jshintConfig":{
+    "esversion":6
   }
 }

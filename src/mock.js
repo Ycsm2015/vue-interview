@@ -22,6 +22,6 @@ export default (startIndex = 0, number = 20) => {
         })
       }
       resolve(mock)
-    }, 2000)
+    }, 500)
   })
 }
